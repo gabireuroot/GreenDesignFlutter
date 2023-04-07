@@ -15,6 +15,11 @@ class AppTheme {
     color: white,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle textBoldStyle = const TextStyle(
+    fontSize: 16,
+    color: white,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle textFieldStyle = const TextStyle(
     fontSize: 16,
     color: dark,
@@ -60,11 +65,37 @@ class AppTheme {
         hintStyle: textHintStyle,
         hintText: hintText,
         border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
           borderSide: BorderSide(color: Colors.transparent),
         ),
         enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          borderSide: BorderSide(color: Colors.transparent),
+        )
+    );
+  }
+
+  static InputDecoration passwdFieldStyle({
+    required String hintText,
+    required String suffixText,
+    required VoidCallback showPasswd,
+  }) {
+    return InputDecoration(
+        filled: true,
+        fillColor: white,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20,),
+        hintStyle: textHintStyle,
+        hintText: hintText,
+        suffix: InkWell(
+          onTap: showPasswd,
+          child: Text(suffixText, style: textDarkButtonStyle,),
+        ),
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          borderSide: BorderSide(color: Colors.transparent),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
           borderSide: BorderSide(color: Colors.transparent),
         )
     );
@@ -75,7 +106,7 @@ class AppTheme {
     backgroundColor: primaryColor,
     textStyle: textButtonStyle,
     shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(15.0),
     ),
     elevation: 4,
     minimumSize: const Size(double.infinity, 55)
@@ -86,7 +117,7 @@ class AppTheme {
       backgroundColor: white,
       textStyle: textDarkButtonStyle,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(15.0),
       ),
       elevation: 4,
       minimumSize: const Size(double.infinity, 55)

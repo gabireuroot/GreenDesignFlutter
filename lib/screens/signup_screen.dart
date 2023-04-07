@@ -1,14 +1,14 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:green_design/theme/app_theme.dart';
 import 'package:green_design/widgets/button_default.dart';
 import 'package:green_design/widgets/button_social_default.dart';
+import 'package:green_design/widgets/passwdfield_default.dart';
 
 import '../widgets/textfield_default.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SignUpScren extends StatelessWidget {
+  const SignUpScren({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "Hi!",
+                              "Sign up",
                               style: AppTheme.textTitleStyle,
                             ),
                           ),
@@ -86,90 +86,57 @@ class HomeScreen extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Let's create a new account",
+                                      style: AppTheme.textStyle,
+                                    ),
+                                  ),
                                   const Padding(
-                                    padding: EdgeInsets.only(bottom: 15,),
+                                    padding: EdgeInsets.only(bottom: 15, top: 20,),
                                     child: TextFieldDefault(
                                       hint: "Name",
                                     ),
                                   ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(bottom: 15,),
+                                    child: TextFieldDefault(
+                                      hint: "Email",
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(bottom: 15,),
+                                    child: PasswdFieldDefault(
+                                      hintText: "Password",
+                                      suffixText: "View",
+                                    ),
+                                  ),
                                   ButtonDefault(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        "/signin_screen",
-                                      );
-                                    },
+                                    onPressed: () {},
                                     textButton: "Continue",
                                   ),
+
                                   Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Text(
-                                      "or",
-                                      style: AppTheme.textStyle,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 10,),
-                                    child: ButtonSocialDefault(
-                                      onPressed: () {},
-                                      textButton: "Continue with Facebook",
-                                      iconButton: "assets/icons/facebook.png",
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 10,),
-                                    child: ButtonSocialDefault(
-                                      onPressed: () {},
-                                      textButton: "Continue with Google",
-                                      iconButton: "assets/icons/google.png",
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 20,),
-                                    child: ButtonSocialDefault(
-                                      onPressed: () {},
-                                      textButton: "Continue with Apple",
-                                      iconButton: "assets/icons/apple.png",
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 10, top: 10,),
+                                    padding: const EdgeInsets.only(bottom: 10, top: 20,),
                                     child: Align(
                                         alignment: Alignment.centerLeft,
                                         child: RichText(
                                           text: TextSpan(
-                                            text: "Don't have an account  ",
+                                            text: "By selecting Agree and continue below,\n",
                                             style: AppTheme.textStyle,
                                             children: [
                                               TextSpan(
-                                                recognizer: TapGestureRecognizer()..onTap = () {
-                                                  Navigator.pushNamed(
-                                                    context,
-                                                    "/signup_screen",
-                                                  );
-                                                },
-                                                text: 'Sign up',
+                                                text: "I agree to",
+                                                style: AppTheme.textStyle,
+                                              ),
+                                              TextSpan(
+                                                text: 'Terms of Service and Privacy Policy',
                                                 style: AppTheme.textLinkStyle,
                                               ),
                                             ],
                                           ),
                                         )
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context,
-                                          "/recover_passwd_screen",
-                                      );
-                                    },
-                                    child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Forgot your password?",
-                                        style: AppTheme.textLinkStyle,
-                                      ),
                                     ),
                                   ),
                                 ],
